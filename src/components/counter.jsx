@@ -5,14 +5,17 @@ class Counter extends Component {
     count: 0,
     tags: ['tag1', 'tag2', 'tag3']
   };
-  
+
+  renderList(){
+    if (this.state.tags.length === 0) return `Tags List is Empty`;
+
+    return <ul> {this.state.tags.map((tag, i) => <li key={i}>{tag}</li>)}</ul>
+  }
   render() {
     return (
       <Fragment>
         <span className={`badge m-2 badge-${this.state.count===0? `warning`:`primary`}`}> {this.formatCount()}</span>
-        <ul>
-          {this.state.tags.map((tag, i)=> <li key={i}>{tag}</li>)}
-        </ul>
+        {this.renderList()}
         <button className="btn btn-secondary btn-sm">Increment</button>
       </Fragment>
     );
