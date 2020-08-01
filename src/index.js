@@ -4,6 +4,10 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.css';  
 import Counter from './components/counter';
 
-ReactDOM.render(<Counter/> , document.querySelector("#root"));
+ReactDOM.render(
+    <React.StrictMode>
+        <Counter/> 
+    </React.StrictMode>
+    , document.querySelector("#root"));
 
 serviceWorker.unregister();
