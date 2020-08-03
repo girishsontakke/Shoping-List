@@ -2,22 +2,22 @@ import React, { Component} from "react";
 
 class Counter extends Component {
   state = {
-    count: 0,
+    value: this.props.value,
     tags: ['tag1', 'tag2', 'tag3']
   };
 
   render() {
     return (
       <div>
-        <span className={`badge m-2 badge-${this.state.count===0? `warning`:`primary`}`}> {this.formatCount()}</span>
+        <span className={`badge m-2 badge-${this.state.value===0? `warning`:`primary`}`}> {this.formatCount()}</span>
         <button onClick={this.handleIncrement} className="btn btn-secondary btn-sm">Increment</button>
       </div>
     );
   }
 
   formatCount() {
-    const { count } = this.state;
-    return count === 0 ? "zero" : count;
+    const { value } = this.state;
+    return value === 0 ? "zero" : value;
   }
 
   renderList(){
@@ -26,7 +26,7 @@ class Counter extends Component {
     return <ul> {this.state.tags.map((tag, i) => <li key={i}>{tag}</li>)}</ul>
   }
 
-  handleIncrement = () => this.setState({count:this.state.count+1});
+  handleIncrement = () => this.setState({value:this.state.value+1});
 }
 
 export default Counter;
