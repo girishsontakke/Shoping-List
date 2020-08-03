@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component} from "react";
 
 class Counter extends Component {
   state = {
@@ -8,11 +8,10 @@ class Counter extends Component {
 
   render() {
     return (
-      <Fragment>
+      <div>
         <span className={`badge m-2 badge-${this.state.count===0? `warning`:`primary`}`}> {this.formatCount()}</span>
-        {this.renderList()}
         <button onClick={this.handleIncrement} className="btn btn-secondary btn-sm">Increment</button>
-      </Fragment>
+      </div>
     );
   }
 
