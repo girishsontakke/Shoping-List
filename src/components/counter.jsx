@@ -5,21 +5,7 @@ class Counter extends Component {
     count: 0,
     tags: ['tag1', 'tag2', 'tag3']
   };
-  // constructor(){
-  //   super();
-  //   this.handleIncrement = this.handleIncrement.bind(this);
-  // }
-  // handleIncrement() {
-  //   console.log("Increment Clicked", this.state.count);
-  // }
 
-  handleIncrement = () => this.setState({count:this.state.count+1});
-
-  renderList(){
-    if (this.state.tags.length === 0) return `Tags List is Empty`;
-
-    return <ul> {this.state.tags.map((tag, i) => <li key={i}>{tag}</li>)}</ul>
-  }
   render() {
     return (
       <Fragment>
@@ -29,10 +15,19 @@ class Counter extends Component {
       </Fragment>
     );
   }
+
   formatCount() {
     const { count } = this.state;
     return count === 0 ? "zero" : count;
   }
+
+  renderList(){
+    if (this.state.tags.length === 0) return `Tags List is Empty`;
+
+    return <ul> {this.state.tags.map((tag, i) => <li key={i}>{tag}</li>)}</ul>
+  }
+
+  handleIncrement = () => this.setState({count:this.state.count+1});
 }
 
 export default Counter;
